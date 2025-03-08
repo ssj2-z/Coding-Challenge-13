@@ -4,8 +4,8 @@ const addEmployeeButton = document.getElementById('addEmployeeButton');
 
 // Employee data to demonstrate adding cards
 const employees = [
-  { name: "Johnny Mac", position: "Software Engineer" },
-  { name: "Adam Smith", position: "Project Manager" },
+  { name: "Johnny Mac", position: "Engineer" },
+  { name: "Adam Smith", position: "Lead Manager" },
   { name: "Mark Pearson", position: "Data Scientist" }
 ];
 
