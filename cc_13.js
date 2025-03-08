@@ -65,3 +65,11 @@ function highlightEmployeeCards() {
   
 // Test case: Call the bulk update after cards are added
 setTimeout(highlightAllEmployeeCards, 2000);
+
+// Task 4 - Applying Removal of Employee Cards with Event Bubbling
+const container = document.getElementById('employeeContainer');
+container.addEventListener('click', (event) => {
+    if (event.target.classList.contains('employee-card')) {
+        console.log(`Employee card clicked: ${event.target.querySelector('h2').textContent}`);
+    }
+});
