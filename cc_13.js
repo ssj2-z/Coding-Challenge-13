@@ -1,4 +1,4 @@
-  // Container where employee cards will be added
+  // Task 2 - Container where employee cards will be added
 const employeeContainer = document.getElementById('employeeContainer');
 const addEmployeeButton = document.getElementById('addEmployeeButton');
 
@@ -51,3 +51,17 @@ addEmployeeButton.addEventListener('click', () => {
 });
 
 employees.forEach(addEmployeeCard);
+
+// Task 3 // Function to highlight all employee cards
+function highlightEmployeeCards() {
+    const employeeCards = document.querySelectorAll('.employee-card');
+    const employeeCardsArray = Array.from(employeeCards);
+    
+    employeeCardsArray.forEach(card => {
+      card.style.backgroundColor = '#FFEB3B';  // Change background color to yellow
+      card.style.border = '2px solid #FF9800';  // Add an orange border
+    });
+  }
+  
+// Test case: Call the bulk update after cards are added
+setTimeout(highlightAllEmployeeCards, 2000);
