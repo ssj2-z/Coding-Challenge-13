@@ -1,6 +1,7 @@
   // Task 2 - Container where employee cards will be added
-const employeeContainer = document.getElementById('employeeContainer');
-const addEmployeeButton = document.getElementById('addEmployeeButton');
+  function addEmployeeCard(name, position) {
+    const Container = document.getElementById('employeeContainer');
+  }
 
 // Employee data to demonstrate adding cards
 const employees = [
@@ -51,9 +52,9 @@ addEmployeeButton.addEventListener('click', () => {
 });
 
 employees.forEach(addEmployeeCard);
-addEmployeeCard("Johnny Mac", position: "Engineer");
-addEmployeeCard("Adam Smith", position: "Lead Manager");
-addEmployeeCard("Mark Pearson", position: "Data Scientist");
+addEmployeeCard("Johnny Mac", "Engineer");
+addEmployeeCard("Adam Smith", "Lead Manager");
+addEmployeeCard("Mark Pearson", "Data Scientist");
 
 // Task 3 // Function to highlight all employee cards
 function highlightEmployeeCards() {
