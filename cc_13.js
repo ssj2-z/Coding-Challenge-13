@@ -29,7 +29,7 @@ function addEmployeeCard(employee) {
   removeButton.textContent = 'Remove';
   removeButton.classList.add('remove-btn');  // Add a class for styling
 
-  // Add an event listener to the remove button to delete the card when clicked
+  //Task 5 - Add an event listener to the remove button to delete the card when clicked
   removeButton.addEventListener('click', () => {
     employeeContainer.removeChild(card);  // Remove the card from the container
   });
@@ -51,6 +51,9 @@ addEmployeeButton.addEventListener('click', () => {
 });
 
 employees.forEach(addEmployeeCard);
+addEmployeeCard("Johnny Mac", position: "Engineer");
+addEmployeeCard("Adam Smith", position: "Lead Manager");
+addEmployeeCard("Mark Pearson", position: "Data Scientist");
 
 // Task 3 // Function to highlight all employee cards
 function highlightEmployeeCards() {
