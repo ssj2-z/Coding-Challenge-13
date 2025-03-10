@@ -1,55 +1,62 @@
-  // Task 2 - Container where employee cards will be added
-  function addEmployeeCard(name, position) {
-    const Container = document.getElementById('employeeContainer');
-  }
+  //Task 2- Adding Employee Cards Dynamically 
+function addEmployeeCard(name, position) {
+  const container = document.getElementById('employeeContainer');
 
-// Employee data to demonstrate adding cards
-const employees = [
-  { name: "Johnny Mac", position: "Engineer" },
-  { name: "Adam Smith", position: "Lead Manager" },
-  { name: "Mark Pearson", position: "Data Scientist" }
-];
-
-// Function to create and add an employee card
-function addEmployeeCard(employee) {
-  // Create a new div for the employee card
+  // Create card
   const card = document.createElement('div');
-  card.classList.add('employee-card');  // Add a class for styling
+  card.setAttribute('class', 'employee-card');
 
-  // Set a unique ID for the card
-  card.setAttribute('id', `employee-${employee.name.replace(" ", "-")}`);
+  // Create heading for employee name
+  const nameElement = document.createElement('h2');
+  nameElement.textContent = name;
 
-  // Create employee name and position elements
-  const name = document.createElement('h3');
-  name.textContent = employee.name;  // Setting name text
-  const position = document.createElement('p');
-  position.textContent = employee.position;  // Setting position text
+  const positionElement = document.createElement('p');
+  positionElement.textContent = position;
 
-  // Create a remove button for deleting the card
+  // Remove button creation 
   const removeButton = document.createElement('button');
   removeButton.textContent = 'Remove';
-  removeButton.classList.add('remove-btn');  // Add a class for styling
 
-  //Task 5 - Add an event listener to the remove button to delete the card when clicked
-  removeButton.addEventListener('click', () => {
-    employeeContainer.removeChild(card);  // Remove the card from the container
+  // Add event to remove the employee card when the button is clicked
+  removeButton.addEventListener('click', (event) => {
+      event.stopPropagation(); // prevents the click event from bubbling (task 4)
+      container.removeChild(card);
+      console.log(`Removed card for ${name}`);
   });
 
-  // Append the name, position, and button to the card
-  card.appendChild(name);
-  card.appendChild(position);
-  card.appendChild(removeButton);
+ // Task 5 - Inline Editing of Employee Details 
+ card.addEventListener('dblclick', () => {
+  const nameInput = document.createElement('input');
+  nameInput.value = nameElement.textContent;  // Pre-populate the name input
+  const positionInput = document.createElement('input');
+  positionInput.value = positionElement.textContent;  // Pre-populate the position input
 
-  // Append the card to the employee container
-  employeeContainer.appendChild(card);
-}
+  const saveButton = document.createElement('button');
+  saveButton.textContent = 'Save';
 
-// Event listener to add a new employee card when the button is clicked
-addEmployeeButton.addEventListener('click', () => {
-  // Use the first employee as a sample to add (or modify as needed)
-  const newEmployee = { name: "Jackson Brown", position: "MLS Designer" };
-  addEmployeeCard(newEmployee);
+  saveButton.addEventListener('click', () => {
+      nameElement.textContent = nameInput.value;
+      positionElement.textContent = positionInput.value;
+
+      // Remove the inputs and Save button
+      card.removeChild(nameInput);
+      card.removeChild(positionInput);
+      card.removeChild(saveButton);
+  });
+
+  // Add input fields and save button
+  card.appendChild(nameInput);
+  card.appendChild(positionInput);
+  card.appendChild(saveButton);
 });
+
+// Add name, position, and button to the card
+card.appendChild(nameElement);
+card.appendChild(positionElement);
+card.appendChild(removeButton);
+
+container.appendChild(card);
+}
 
 employees.forEach(addEmployeeCard);
 addEmployeeCard("Johnny Mac", "Engineer");
