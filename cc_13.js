@@ -58,21 +58,20 @@ card.appendChild(removeButton);
 container.appendChild(card);
 }
 
-employees.forEach(addEmployeeCard);
 addEmployeeCard("Johnny Mac", "Engineer");
 addEmployeeCard("Adam Smith", "Lead Manager");
 addEmployeeCard("Mark Pearson", "Data Scientist");
 
-// Task 3 // Function to highlight all employee cards
-function highlightEmployeeCards() {
-    const employeeCards = document.querySelectorAll('.employee-card');
-    const employeeCardsArray = Array.from(employeeCards);
-    
-    employeeCardsArray.forEach(card => {
-      card.style.backgroundColor = '#FFEB3B';  // Change background color to yellow
-      card.style.border = '2px solid #FF9800';  // Add an orange border
-    });
-  }
+// Task 3 - Applyinging NodeLists to Arrays for Bulk Updates
+function highlightAllEmployeeCards() {
+  const nodeList = document.querySelectorAll('.employee-card');
+  const employeeCards = Array.from(nodeList);
+
+  employeeCards.forEach(card => {
+      card.style.backgroundColor = '#ffeb3b'; // Highlight with yellow background
+      card.style.border = '2px solid #ff9800'; // Add an orange border
+  });
+}
   
 // Test case: Call the bulk update after cards are added
 setTimeout(highlightAllEmployeeCards, 2000);
